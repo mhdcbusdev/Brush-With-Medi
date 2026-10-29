@@ -82,3 +82,82 @@ html,body{background:#2b2036}
 .pill{box-shadow:0 2px 8px rgba(120,80,40,.15)}
 .go-btn{letter-spacing:.3px}
 .day-card,.sel-opt,.coll-cell,.bubble{box-shadow:0 3px 10px rgba(150,100,50,.12)}
+
+/* BRUSH WITH MEDI — storyboard layout revision (2026-10-29)
+   Scene positions are kept independent of gameplay canvas coordinates. */
+:root{--red:#f52d4c;--red-dark:#b91334;--cream:#fff2d9;--ink:#48231c}
+#app{background:#fff0d5;color:var(--ink);isolation:isolate}
+.scr{background:linear-gradient(180deg,#fff4dd 0%,#ffebcb 100%)!important;justify-content:flex-start;gap:0;padding:0 20px}
+.scr::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 50% 11%,#fff9eb 0,transparent 57%)}
+#scrHome,#scrPrep,#scrBrushDone,#scrCollection{background:linear-gradient(180deg,#fff0d6,#ffebd0)!important}
+#scrHome::after,#scrPrep::after,#scrBrushDone::after,#scrCollection::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;opacity:.48;background:linear-gradient(90deg,transparent 0 13%,#cee8df77 13% 30%,transparent 30% 72%,#f7c6a255 72% 90%,transparent 90%) 0 15%/100% 12% no-repeat,radial-gradient(ellipse at 13% 70%,#87bd9999 0 8%,transparent 9%),linear-gradient(90deg,#e0c69d66,#fff8ee66,#e8ba9166) 0 42%/100% 5% no-repeat}
+.go-btn{position:relative;z-index:4;background:linear-gradient(180deg,#ff4c61 0%,#f52044 90%)!important;border:2px solid #fff5e8!important;box-shadow:0 5px 0 #a91b31,0 9px 17px #ab7b5c33!important;color:white!important;min-height:52px;padding:11px 14px;font-size:16px;max-width:330px;flex-shrink:0}
+.go-btn:active{transform:translateY(3px);box-shadow:0 2px 0 #a91b31!important}
+.ghost-btn{font-size:12px;color:#8b5544}
+.splash-logo{font-size:clamp(39px,11vw,55px);line-height:.96;color:#2384d6;position:absolute;top:9%;width:90%;left:5%;font-weight:900;letter-spacing:-1.5px;text-shadow:2px 3px #fff, -1px -1px #fff,0 6px 0 #155385}
+.splash-logo span{color:#ffbd2e;text-shadow:2px 3px #fff,-2px -1px #fff,0 5px 0 #c72429}
+#scrSplash .splash-medi{position:absolute;top:31%;left:5%;width:90%;height:44%;object-fit:contain;filter:drop-shadow(0 8px 8px #ad7a5744)}
+#scrSplash .go-btn{position:absolute;bottom:7%;width:84%}
+#scrHome{padding:0 25px}
+#homeChip{position:absolute;top:6%;left:50%;transform:translateX(-50%);white-space:nowrap;background:#f08724!important;color:#fff!important;font-size:12px}
+#homeFace{position:absolute;top:12%;left:35%;height:18%!important;width:30%!important;object-fit:contain!important}
+#scrHome .home-title{position:absolute;top:30%;left:0;width:100%;font-size:27px;line-height:1.15}
+#scrHome>div:nth-of-type(3){position:absolute;top:37%;width:92%;left:4%;font-size:12px!important}
+#tracker{position:absolute;top:43%;left:10%;width:80%!important;max-width:none!important;gap:9px!important;grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.day-card{min-height:78px;padding:12px 0;border-radius:13px;border-width:2px;box-shadow:0 3px 0 #e7cab0!important}
+.day-card.active{border-color:#ff3151;color:#d7233e;background:#fff9f7}
+.day-card.done{border-color:#28b065}
+#scrHome #btnStart{position:absolute;bottom:12%;width:85%}
+#scrHome #btnColl{position:absolute;bottom:7%;left:20%;width:60%;text-align:center}
+#scrHome #btnReset{position:absolute;bottom:3%;left:20%;width:60%;text-align:center}
+#scrSelect{padding:0 26px;gap:0}
+#scrSelect .sel-title{position:absolute;top:7%;width:94%;text-align:center;font-size:23px}
+#scrSelect .sel-title::after{content:'Pilih sikat gigi, odol, dan gelas kesukaanmu!';display:block;font-size:11px;font-weight:700;letter-spacing:0;margin-top:6px;color:#784437}
+#scrSelect .sel-group{position:absolute;left:7%;width:86%;height:19%;align-items:stretch;gap:5px}
+#scrSelect .sel-group:nth-of-type(2){top:21%}
+#scrSelect .sel-group:nth-of-type(3){top:42%}
+#scrSelect .sel-group:nth-of-type(4){top:63%}
+.sel-label{font-size:14px;font-weight:900;color:#4f231c;text-align:left;letter-spacing:0}
+.sel-row{width:100%;flex-wrap:nowrap;gap:9px;align-items:center;justify-content:space-between}
+.sel-opt{flex:1;min-width:0;max-width:95px;height:clamp(79px,12vh,110px);border-radius:14px;border:2px solid #f1d8bc}
+.sel-opt.sel{border-color:#fb3053;transform:translateY(-2px);box-shadow:0 4px 12px #f23b513b}
+.sel-opt img{max-height:92%;max-width:92%}
+#scrSelect #btnPlay{position:absolute;bottom:5%;width:85%}
+#scrPrep .pose{position:absolute;top:20%;width:95%;height:48%;object-fit:contain;filter:drop-shadow(0 9px 9px #936d5640)}
+#scrPrep .bubble{position:absolute;bottom:18%;width:90%;max-width:340px;line-height:1.4;padding:12px 15px}
+#scrPrep #btnPrep{position:absolute;bottom:6%;width:82%}
+#scrBrushDone .pose{position:absolute;top:16%;width:95%;height:52%;object-fit:contain}
+#scrBrushDone .bd-title{position:absolute;bottom:21%;font-size:19px;width:90%}
+#scrBrushDone #btnKumur{position:absolute;bottom:7%;width:83%}
+#scrComplete{padding:0 28px}
+#celStars{position:absolute;top:5%;font-size:37px}
+#scrComplete #doneFace{position:absolute;top:17%;height:36%!important;width:84%!important;object-fit:contain!important}
+#celTitle{position:absolute;top:8%;font-size:25px!important;width:95%}
+#celMsg{position:absolute;top:52%}
+#celNote{position:absolute;top:57%;width:86%;font-size:12px!important;max-width:340px!important}
+#dayCheck{position:absolute;top:67%;width:84%!important;max-width:340px!important}
+#dayCheck .cl-item{border-radius:12px;padding:8px 14px}
+#scrComplete #btnNext{position:absolute;bottom:6%;width:83%}
+#scrCollection{padding:0 24px}
+#scrCollection .sel-title{position:absolute;top:9%;font-size:28px}
+#scrCollection>div:nth-of-type(2){position:absolute;top:16%;width:90%;font-size:13px!important}
+#collGrid{position:absolute;top:29%;left:8%;width:84%!important;max-width:none!important;grid-template-columns:repeat(3,1fr);gap:12px}
+.coll-cell{min-height:100px;border:2px solid #f2d9bf;border-radius:13px}
+.coll-cell.active{border-color:#f52d4c}
+#scrCollection #btnCollBack{position:absolute;bottom:8%;font-size:15px;text-decoration:none;background:#fff;border-radius:24px;padding:12px 30px}
+#scrHero{padding:0 25px}
+#scrHero .hero-medal{position:absolute;top:4%;font-size:42px}
+#scrHero>div:nth-of-type(2){position:absolute;top:11%;font-size:29px!important}
+#heroBanner{position:absolute;top:19%;font-size:12px!important;background:#f7a71c!important}
+#heroFace{position:absolute;top:29%;height:41%!important;width:95%!important;object-fit:contain!important}
+#scrHero>div:nth-of-type(4){position:absolute;top:70%;width:87%;font-weight:800;font-size:13px!important}
+#scrHero #checklist{display:none}
+#scrHero>div:nth-of-type(6){position:absolute;top:77%;width:87%!important;font-size:12px!important}
+#scrHero #btnAgain{position:absolute;bottom:6%;width:65%;left:0%;max-width:65%;font-size:13px}
+#scrHero #btnHome{position:absolute;bottom:6%;width:33%;right:2%;background:#fff;border-radius:30px;padding:15px 0;text-decoration:none;font-size:10px}
+#hud{padding:17px 13px 0}
+#progWrap{top:65px;left:18px;right:18px;height:11px;border:2px solid #fff;box-shadow:0 2px 4px #bd997555}
+#pFill{background:linear-gradient(90deg,#ffd63c,#ff9b26)!important}
+#instrBox{bottom:9%;left:7%;width:86%;transform:none;white-space:normal;text-align:center;padding:12px 15px;border:2px solid #f4d8bd;font-size:12px}
+#face{filter:none}
+@media(max-height:700px){#scrHome .home-title{top:28%}#tracker{top:40%}.day-card{min-height:62px;padding:8px 0}#scrSelect .sel-group:nth-of-type(2){top:19%}#scrSelect .sel-group:nth-of-type(3){top:40%}#scrSelect .sel-group:nth-of-type(4){top:61%}.sel-opt{height:74px}#dayCheck .cl-item{padding:5px 12px}}

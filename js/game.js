@@ -54,7 +54,7 @@ function drawBg(day){
   bc.clearRect(0,0,W,H);
   const g=bc.createLinearGradient(0,0,0,H);g.addColorStop(0,'#FCEFD6');g.addColorStop(1,'#F6E2C4');
   bc.fillStyle=g;bc.fillRect(0,0,W,H);
-  bc.strokeStyle='rgba(180,120,150,.16)';bc.lineWidth=1;
+  bc.strokeStyle='rgba(192,143,103,.10)';bc.lineWidth=1;
   for(let x=0;x<W;x+=26){bc.beginPath();bc.moveTo(x,0);bc.lineTo(x,H);bc.stroke();}
   for(let y=0;y<H;y+=26){bc.beginPath();bc.moveTo(0,y);bc.lineTo(W,y);bc.stroke();}
 }
